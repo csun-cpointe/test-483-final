@@ -55,10 +55,15 @@
                     <groupId>${group.fabric8.plugin}</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <configuration>
-                        <skip>true</skip>
+                        <skip>false</skip>
                         <images>
                             <image>
-                                <name>${project.artifactId}:${project.version}</name>
+                                <name>${project.artifactId}</name>
+                                <build>
+                                    <tags>
+                                        <tag>${project.version}</tag>
+                                    </tags>
+                                </build>
                             </image>
                         </images>
                     </configuration>

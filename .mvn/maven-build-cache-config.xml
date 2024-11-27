@@ -80,9 +80,29 @@
                         <goal>install</goal>
                     </goals>
                 </goalsList>
-                <goalsList artifactId="maven-deploy-plugin">
+<!--                <goalsList artifactId="maven-deploy-plugin">-->
+<!--                    <goals>-->
+<!--                        <goal>deploy</goal>-->
+<!--                    </goals>-->
+<!--                </goalsList>-->
+                <goalsList artifactId="maven-resources-plugin">
                     <goals>
-                        <goal>deploy</goal>
+                        <goal>copy-resources</goal>
+                    </goals>
+                </goalsList>
+                <goalsList artifactId="mda-maven-plugin">
+                    <goals>
+                        <goal>copy-pipeline-artifacts</goal>
+                    </goals>
+                </goalsList>
+                <goalsList artifactId="docker-maven-plugin">
+                    <goals>
+                        <goal>build</goal>
+                    </goals>
+                </goalsList>
+                <goalsList artifactId="build-helper-maven-plugin">
+                    <goals>
+                        <goal>regex-property</goal>
                     </goals>
                 </goalsList>
             </goalsLists>
