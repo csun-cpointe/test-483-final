@@ -4,6 +4,6 @@ spec:
       - values.yaml
       - values-dev.yaml
 
-  syncPolicy:
-    automated:
-      prune: true
+# for local deployment, use s3-local secret
+credentialSecret:
+  enabled: false

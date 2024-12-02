@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$1" == "up" ]; then
+deploy() {
   argocd app get test-483-final --server localhost:30080 --plaintext &> /dev/null
 
   if [ $? -eq 0 ]; then
@@ -17,11 +17,29 @@ if [ "$1" == "up" ]; then
       --values values-dev.yaml \
       --sync-policy automated
   fi
-else
-  if [ "$1" == "down" ]; then
+}
+
+down() {
+   argocd app get test-483-final --server localhost:30080 --plaintext &> /dev/null
+
+  if [ $? -eq 0 ]; then
     argocd app delete test-483-final --server localhost:30080 --plaintext
   else
-    echo "error: you must use \"up\" or \"down\" command for \"deploy\""
+    echo "test-483-final is not deployed"
+  fi
+}
+
+print_usage() {
+  echo "Usage---: $0 [up|down]"
+}
+
+if [ "$1" = "up" ]; then
+  deploy
+else
+  if [ "$1" = "down" ]; then
+    down
+  else
+    print_usage
   fi
 fi
 
