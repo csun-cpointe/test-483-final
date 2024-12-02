@@ -5,5 +5,4 @@ spec:
       - values-dev.yaml
 
 # for local deployment, use s3-local secret
-credentialSecret:
-  enabled: false
+s3LocalEnabled: true
